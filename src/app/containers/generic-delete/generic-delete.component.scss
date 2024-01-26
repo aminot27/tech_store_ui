@@ -1,0 +1,22 @@
+.dialog-content {
+    text-align: center;
+  
+    h2 {
+      margin-bottom: 0px;
+    }
+  
+    p {
+      margin-bottom: 10px;
+    }
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center; 
+    gap: 10px; 
+  
+    button {
+      flex-grow: 1;
+      margin-bottom: 10px; 
+    }
+  }

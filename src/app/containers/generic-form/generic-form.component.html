@@ -1,0 +1,46 @@
+<h2>{{title}}</h2>
+
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+  <div *ngFor="let field of config">
+    <ng-container *ngIf="field.type !== 'checkbox' && field.type !== 'select'; else otherFields">
+      <div class="input-container">
+        <mat-form-field appearance="fill">
+          <mat-label>{{field.label}}</mat-label>
+          <input matInput [type]="field.type" [formControlName]="field.name">
+          <mat-error *ngIf="form.get(field.name).errors?.['required']">
+            {{ field.label }} es necesario.
+          </mat-error>
+          <mat-error *ngIf="form.get(field.name).errors?.['maxlength']">
+            {{ field.label }} máximo {{ field.maxLength }} caracteres.
+          </mat-error>
+        </mat-form-field>
+        <button *ngIf="field.name === 'serial_number' && showAddButtonForSerial" mat-raised-button color="primary" class="add-button">
+          Agregar
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #otherFields>
+      <ng-container *ngIf="field.type === 'checkbox'; else selectField">
+        <mat-checkbox [formControlName]="field.name">{{field.label}}</mat-checkbox>
+      </ng-container>
+      <ng-template #selectField>
+        <mat-form-field appearance="fill">
+          <mat-label>{{field.label}}</mat-label>
+          <mat-select [formControlName]="field.name">
+            <mat-option *ngFor="let option of field.options" [value]="option.value">
+              {{ option.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get(field.name).errors?.['required']">
+            {{ field.label }} es necesario.
+          </mat-error>
+        </mat-form-field>
+      </ng-template>
+    </ng-template>
+  </div>
+  
+  <div class="actions" *ngIf="showActions">
+    <button mat-raised-button [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </div>
+</form>

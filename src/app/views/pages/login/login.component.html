@@ -1,0 +1,55 @@
+<div class="bg-light min-vh-100 d-flex flex-row align-items-center">
+  <c-container>
+    <c-row class="justify-content-center">
+      <c-col md="5">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body>
+              <form cForm [formGroup]="loginForm">
+                <h1>TECH STORE</h1>
+                <p class="text-medium-emphasis">Iniciar Session</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <input autoComplete="username" cFormControl formControlName="username"
+                         placeholder="Nro Documento"/>
+                </c-input-group>
+                <c-input-group class="mb-4" *ngIf="!isRegistered">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <input
+                    autoComplete="current-password"
+                    cFormControl
+                    formControlName="password"
+                    placeholder="Password"
+                    type="password"
+                    (keydown.enter)="login()"
+                  />
+                </c-input-group>
+                <c-row *ngIf="!isRegistered">
+                  <c-col xs="6">
+                    <button cButton class="px-4" color="primary" (click)="login()" (keydown.enter)="login()">
+                      Ingresar
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <!-- <button cButton class="px-0" color="link">
+                      Olvide mi contraseña
+                    </button> -->
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          <!-- <c-card [ngStyle]="{'width.%': 44}" class="text-white bg-info py-5">
+            <c-card-body class="text-center">
+
+            </c-card-body>
+          </c-card> -->
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

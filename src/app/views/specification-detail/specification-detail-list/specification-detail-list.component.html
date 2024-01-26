@@ -1,0 +1,8 @@
+<h2>Gestión de Especificacion Detalle</h2>
+<app-generic-table [displayedColumns]="displayedColumns"
+                    [columnNames]="columnNames"
+                    [dataSource]="dataSource"
+                    (edit)="openEditModal($event)"
+                    (delete)="openDeleteModal($event)"
+                    (add)="addSpecificationDetailModal()">
+</app-generic-table>

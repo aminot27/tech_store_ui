@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  tech_store_ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tech_store_ui
+    container_name: tech_store_ui
+    ports:
+      #host:container
+      - "1122:81"

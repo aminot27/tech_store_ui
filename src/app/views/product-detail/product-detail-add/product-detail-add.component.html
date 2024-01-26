@@ -1,0 +1,19 @@
+<mat-dialog-content>
+    <app-generic-form 
+        [title]="title" 
+        [showAddButtonForSerial]="showAddButtonForSerial"
+        [config]="formConfig" 
+        [showActions]="showButtonsInForm"
+        (submitEvent)="onFormSubmit($event)">
+    </app-generic-form>
+
+    <app-generic-table
+                    [displayedColumns]="displayedColumns"
+                    [columnNames]="columnNames"
+                    [dataSource]="secondaryTableData"
+                    [showSearch]="false"
+                    (edit)="openEditModal($event)"
+                    (delete)="openDeleteModal($event)"
+                    >
+    </app-generic-table>
+</mat-dialog-content>

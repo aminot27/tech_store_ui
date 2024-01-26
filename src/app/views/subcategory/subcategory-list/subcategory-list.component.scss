@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+}
+
+button{
+  margin: 2px;
+}
+
+button mat-icon {
+  margin-right: -4px;
+}
+
+th{
+  background-color: #46546c !important;
+  color: white;
+}
+
+.add-button {
+  background-color: rgb(2, 188, 2) !important;
+  color: white !important;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.input-container mat-form-field {
+  flex-grow: 1;
+}

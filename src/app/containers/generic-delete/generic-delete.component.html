@@ -1,0 +1,9 @@
+<mat-dialog-content class="dialog-content">
+  <h2 mat-dialog-title>ELIMINAR {{ title }}</h2>
+  <p>¿Seguro que deseas eliminar la {{ title | lowercase }} con ID {{ Id }}?</p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-raised-button mat-dialog-close>Cancelar</button>
+  <button mat-raised-button color="warn" (click)="onConfirm()">Eliminar</button>
+</mat-dialog-actions>
